@@ -2,6 +2,15 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+require("plugins")
+
+-- automatically source plugins on change
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
 
 local function open_nvim_tree(data)
 
@@ -27,52 +36,9 @@ end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
+require("vimsettings")
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-
---Sets how many lines of history VIM has to remember
-vim.opt.history=500
-
---Set to auto read when a file is changed from the outside
-vim.opt.autoread = true
--- TODO figure out how this works or sth
--- vim.opt.au=FocusGained,BufEnter * checktime
-
---Always show current position
-vim.opt.ruler = true
-
---Ignore case when searching
-vim.opt.ignorecase = true
-
---When searching try to be smart about cases
-vim.opt.smartcase = true
-
---Highlight search results
-vim.opt.hlsearch = true
-
---Makes search act like search in modern browsers
-vim.opt.incsearch = true
-
---Don't redraw while executing macros (good performance config)
-vim.opt.lazyredraw = true
-
---For regular expressions turn magic on
-vim.opt.magic = true
-
---Show matching brackets when text indicator is over them
-vim.opt.showmatch = true
-
---Use spaces instead of tabs
-vim.opt.expandtab = true
-
---Be smart when using tabs ;)
-vim.opt.smarttab = true
-
-
--- empty setup using defaults
+require("fidget").setup()
 require("nvim-tree").setup()
 require("telescope").setup{
     defaults = {
@@ -87,6 +53,8 @@ require("onedark").setup{
   style = "warmer",
 }
 require("onedark").load()
+
+require("symbols-outline").setup()
 
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the four listed parsers should always be installed)
@@ -133,3 +101,23 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   }
 }
+
+require'lualine'.setup()
+require'bufferline'.setup()
+vim.notify = require("notify")
+
+require('lazygit').setup()
+
+require('shade').setup()
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+  },
+})
