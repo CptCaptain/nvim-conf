@@ -30,14 +30,21 @@ ToDo:
 - nvim-tree
 - lazygit
 
+### Movement
+- leap
+
 ### Eye candy
 - fidget
 - shade
 - twilight
 - zen-mode
+    - This seems broken rn
 - lualine
 - bufferline
 - nvim-notify
+
+### Usability
+- which-key
 
 ---
 ## Requires external tools

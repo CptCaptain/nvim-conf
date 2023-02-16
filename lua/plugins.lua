@@ -116,11 +116,33 @@ return require('packer').startup(function(use)
       }
     end
   }
+  --[[ seems busted
   -- zen out to focus
   use {
     "folke/zen-mode.nvim",
     config = function()
       require("zen-mode").setup {
+        -- your configuration comes here
+      }
+    end
+  }
+  --]]
+  use({
+    "Pocco81/true-zen.nvim",
+    config = function()
+      require("true-zen").setup {
+        -- your config goes here
+        -- or just leave it empty :)
+      }
+    end,
+  })
+  -- keymap remembrance
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
         -- your configuration comes here
       }
     end
@@ -159,6 +181,9 @@ return require('packer').startup(function(use)
 
   -- git
   use 'kdheepak/lazygit.nvim'
+
+  -- quick movement
+  use 'ggandor/leap.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
