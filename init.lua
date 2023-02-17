@@ -2,60 +2,25 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+
 require("plugins")
-
--- automatically source plugins on change
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile | PackerSync
-  augroup end
-]])
-
-local function open_nvim_tree(data)
-
-  -- buffer is a directory
-  local directory = vim.fn.isdirectory(data.file) == 1
-
-  if not directory then
-    return
-  end
-
-  -- create a new, empty buffer
-  vim.cmd.enew()
-
-  -- wipe the directory buffer
-  vim.cmd.bw(data.buf)
-
-  -- change to the directory
-  vim.cmd.cd(data.file)
-
-  -- open the tree
-  require("nvim-tree.api").tree.open()
-end
-
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+require("_lazy")
 
 require("vimsettings")
-
+vim.notify = require("notify")
 require("nvim-tree").setup()
-require("telescope").setup{ }
+
 require("_telescope") -- local telescope settings
-
-require('mason').setup()
-require("lspconfig").pyright.setup{}
-require("symbols-outline").setup()
-
-require('leap').add_default_mappings()
 
 require("onedark").setup{
   style = "warmer",
 }
 require("onedark").load()
-require("fidget").setup()
-require'lualine'.setup()
-require'bufferline'.setup()
-require('shade').setup()
+
+require('leap').add_default_mappings()
 
 
 require'nvim-treesitter.configs'.setup {
@@ -70,27 +35,10 @@ require'nvim-treesitter.configs'.setup {
   auto_install = true,
   highlight = {
     enable = true,
-   additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = false,
   },
   indent = {
     enable = true,
   }
 }
 
-vim.notify = require("notify")
-
-
-require('dap-python').setup()
-
-local rt = require("rust-tools")
-
-rt.setup({
-  server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
-})

@@ -1,3 +1,4 @@
+vim.opt.shiftwidth = 2
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
@@ -5,7 +6,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 --Sets how many lines of history VIM has to remember
-vim.opt.history=500
+vim.opt.history = 500
 
 --Set to auto read when a file is changed from the outside
 vim.opt.autoread = true
@@ -42,4 +43,6 @@ vim.opt.expandtab = true
 --Be smart when using tabs ;)
 vim.opt.smarttab = true
 
+-- smartly indent
+vim.opt.smartindent = true
 

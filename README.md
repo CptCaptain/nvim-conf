@@ -15,9 +15,10 @@ ToDo:
 - nvim-treesitter
 - rust-tools
 - goto-preview
-- glow
 
-### Refactoring
+### Coding && Refactoring
+- nvim-csp
+  - config inspired by lazyvim
 - IncRename
 
 ### Debugging
@@ -38,8 +39,7 @@ ToDo:
 - fidget
 - shade
 - twilight
-- zen-mode
-    - This seems broken rn
+- true-zen
 - lualine
 - bufferline
 - nvim-notify
