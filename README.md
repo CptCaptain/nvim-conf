@@ -23,6 +23,7 @@ ToDo:
 ### Debugging
 - plenary  %% really? Or just random stuff that's a dependency for telescope? %%
 - nvim-dap
+- nvim-dap-python
 - trouble
 
 ### Organization

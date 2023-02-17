@@ -106,9 +106,9 @@ require'lualine'.setup()
 require'bufferline'.setup()
 vim.notify = require("notify")
 
--- require('lazygit').setup{}
-
 require('leap').add_default_mappings()
+
+require('dap-python').setup()
 
 require('shade').setup()
 local rt = require("rust-tools")
