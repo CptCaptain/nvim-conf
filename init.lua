@@ -8,7 +8,7 @@ require("plugins")
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile | PackerSync
   augroup end
 ]])
 
@@ -42,6 +42,7 @@ require("nvim-tree").setup()
 require("telescope").setup{ }
 require("_telescope") -- local telescope settings
 
+require('mason').setup()
 require("lspconfig").pyright.setup{}
 require("symbols-outline").setup()
 
