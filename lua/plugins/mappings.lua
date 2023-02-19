@@ -1,8 +1,15 @@
 local wk = require('which-key')
 wk.register({
   ["<leader>"] = {
+    -- copy and paste to system clipboard
+    y = { "\"+y", "Yank to clipboard", mode = { "n", "v" } },
+    p = { "\"+p", "Paste from clipboard", mode = { "n", "v" } },
+    n = {
+      name = "Tree",
+      t = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },
+    },
     q = {
-      name = "persistence",
+      name = "Persistence",
       s = { "<cmd>lua require('persistence').load()<cr>" , "restore the session for the current directory" },
       l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "restore the last session" },
       d = { "<cmd>lua require('persistence').stop()<cr>", "stop Persistence => session won't be saved on exit" },
