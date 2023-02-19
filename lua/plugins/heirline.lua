@@ -13,7 +13,7 @@ return {
       require("onedark.palette")
     }
     --]]
-    local c = require('onedark.colors')
+    local c = require('nordic.colors')
     local colors = {
       bright_bg = utils.get_highlight("Folded").bg,
       bright_fg = utils.get_highlight("Folded").fg,

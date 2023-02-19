@@ -7,8 +7,12 @@ return {
   'rcarriga/nvim-notify',
   -- theme
   {
-  'navarasu/onedark.nvim',
+  'AlexvZyl/nordic.nvim',
+    lazy = false,
     priority = 1000,
+    config = function()
+        require 'nordic' .load()
+    end,
   },
   -- focus on cursor region, darken everything else
   { "folke/twilight.nvim", cmd = { "Twilight" } },
