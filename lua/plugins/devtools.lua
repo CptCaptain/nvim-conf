@@ -5,6 +5,25 @@ end, { expr = true })
 return { 
   -- view symbols used in file
   'simrat39/symbols-outline.nvim',
+  -- Statusline component that shows current code context
+  {
+    "SmiteshP/nvim-navic",
+    config = function ()
+      local navic = require("nvim-navic")
+      require("lspconfig").clangd.setup {
+        on_attach = function(client, bufnr)
+          navic.attach(client, bufnr)
+        end
+      }
+    end
+  },
+  -- git signs
+  {
+  'lewis6991/gitsigns.nvim',
+    config = function ()
+      require("gitsigns").setup()
+    end
+  },
   -- package management for LSP et al.
   {
     'williamboman/mason.nvim',

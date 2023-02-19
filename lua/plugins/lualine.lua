@@ -1,3 +1,4 @@
+--[[
 -- status line
 return {
   "nvim-lualine/lualine.nvim",
@@ -9,3 +10,5 @@ return {
     }
   end,
 }
+--]] 
+return {}
