@@ -8,12 +8,8 @@ return {
   config = function ()
     local conditions = require("heirline.conditions")
     local utils = require("heirline.utils")
-    --[[ These seem to have non-matching names
-    local colors = {
-      require("onedark.palette")
-    }
-    --]]
-    local c = require('nordic.colors')
+
+    local palette = require('nordic.colors')
     local colors = {
       bright_bg = utils.get_highlight("Folded").bg,
       bright_fg = utils.get_highlight("Folded").fg,
@@ -29,9 +25,9 @@ return {
       diag_error = utils.get_highlight("DiagnosticError").fg,
       diag_hint = utils.get_highlight("DiagnosticHint").fg,
       diag_info = utils.get_highlight("DiagnosticInfo").fg,
-      git_del = c.red,
-      git_add = c.green,
-      git_change = c.yellow,
+      git_del = palette.git.delete,
+      git_add = palette.git.add,
+      git_change = palette.git.change,
     }
 
     require("heirline").load_colors(colors)
