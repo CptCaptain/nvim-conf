@@ -3,7 +3,6 @@
 -- use 'sunjon/shade.nvim'
 
 return {
-  'sunjon/shade.nvim',
   -- notifications
   'rcarriga/nvim-notify',
   -- theme

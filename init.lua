@@ -19,7 +19,7 @@ require("onedark").setup{
 require("onedark").load()
 
 require('leap').add_default_mappings()
-require('shade').setup()
+-- require('shade').setup()
 
 
 require'nvim-treesitter.configs'.setup {
