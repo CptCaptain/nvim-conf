@@ -2,6 +2,7 @@
 return {
   {
     'nvim-telescope/telescope.nvim', version = '0.1.1',
+    cmd = { "Telescope" },
     -- or                            , branch = '0.1.x',
     dependencies = { {'nvim-lua/plenary.nvim'} }
   },

@@ -11,9 +11,7 @@ require("_lazy")
 
 require("vimsettings")
 vim.notify = require("notify")
-require("nvim-tree").setup()
-
-require("_telescope") -- local telescope settings
+-- require("nvim-tree").setup()
 
 require("onedark").setup{
   style = "warmer",
@@ -21,6 +19,7 @@ require("onedark").setup{
 require("onedark").load()
 
 require('leap').add_default_mappings()
+require('shade').setup()
 
 
 require'nvim-treesitter.configs'.setup {

@@ -44,5 +44,10 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 
 -- smartly indent
+vim.opt.autoindent = true
 vim.opt.smartindent = true
+
+
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 

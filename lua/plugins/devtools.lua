@@ -1,3 +1,7 @@
+vim.keymap.set("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
+
 return { 
   -- view symbols used in file
   'simrat39/symbols-outline.nvim',
@@ -29,6 +33,7 @@ return {
   },
   {
     "smjonas/inc-rename.nvim",
+    cmd = { "IncRename" },
     config = function()
       require("inc_rename").setup()
     end,
