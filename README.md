@@ -8,7 +8,8 @@ ToDo:
 - [ ] record some important info about each 
 
 ### Package manager
-- packer
+- lazy
+- Mason
 
 ### LSPs et al.
 - nvim-lspconfig
@@ -17,13 +18,15 @@ ToDo:
 - goto-preview
 
 ### Coding && Refactoring
-- nvim-csp
+- nvim-cmp
   - config inspired by lazyvim
 - IncRename
+- splitjoin
 
 ### Debugging
 - plenary  %% really? Or just random stuff that's a dependency for telescope? %%
 - nvim-dap
+- nvim-dap-ui
 - nvim-dap-python
 - trouble
 
@@ -37,10 +40,9 @@ ToDo:
 
 ### Eye candy
 - fidget
-- shade
 - twilight
 - true-zen
-- lualine
+- heirline
 - bufferline
 - nvim-notify
 
