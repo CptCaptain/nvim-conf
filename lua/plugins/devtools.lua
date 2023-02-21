@@ -2,9 +2,13 @@ vim.keymap.set("n", "<leader>rn", function()
   return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
 
-return { 
+return {
   -- view symbols used in file
   'simrat39/symbols-outline.nvim',
+  {
+    'mbbill/undotree',
+    lazy = false,
+  },
   -- Statusline component that shows current code context
   {
     "SmiteshP/nvim-navic",
