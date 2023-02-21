@@ -4,7 +4,13 @@ end, { expr = true })
 
 return {
   -- view symbols used in file
-  'simrat39/symbols-outline.nvim',
+  {
+    'simrat39/symbols-outline.nvim',
+    cmd = { "SymbolsOutline" },
+    config = function ()
+      require('symbols-outline').setup()
+    end,
+  },
   {
     'mbbill/undotree',
     lazy = false,
@@ -23,7 +29,7 @@ return {
   },
   -- git signs
   {
-  'lewis6991/gitsigns.nvim',
+    'lewis6991/gitsigns.nvim',
     config = function ()
       require("gitsigns").setup()
     end
