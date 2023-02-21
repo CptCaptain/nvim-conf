@@ -53,3 +53,5 @@ vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
 
 vim.opt.scrolloff = 5
 
+vim.opt.splitright = true
+
