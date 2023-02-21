@@ -150,9 +150,9 @@ return {
       end
     }
 
-    --[[
     local FileName = {
       init = function(self)
+        self.filename = vim.api.nvim_buf_get_name(0)
         self.lfilename = vim.fn.fnamemodify(self.filename, ":.")
         if self.lfilename == "" then self.lfilename = "[No Name]" end
       end,
@@ -171,10 +171,10 @@ return {
         end,
       },
     }
-    --]]
 
-local FileName = {
-    provider = function(self)
+    --[[
+    local FileName = {
+      provider = function(self)
         -- first, trim the pattern relative to the current directory. For other
         -- options, see :h filename-modifers
         local filename = vim.fn.fnamemodify(self.filename, ":.")
@@ -183,12 +183,13 @@ local FileName = {
         -- space, we trim the file path to its initials
         -- See Flexible Components section below for dynamic truncation
         if not conditions.width_percent_below(#filename, 0.25) then
-            filename = vim.fn.pathshorten(filename)
+          filename = vim.fn.pathshorten(filename)
         end
         return filename
-    end,
-    hl = { fg = utils.get_highlight("Directory").fg },
-}
+      end,
+      hl = { fg = utils.get_highlight("Directory").fg },
+    }
+    --]]
 
     local FileFlags = {
       {
