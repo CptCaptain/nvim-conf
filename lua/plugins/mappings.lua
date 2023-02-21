@@ -4,6 +4,7 @@ wk.register({
     -- copy and paste to system clipboard
     y = { "\"+y", "Yank to clipboard", mode = { "n", "v" } },
     p = { "\"+p", "Paste from clipboard", mode = { "n", "v" } },
+    u = { "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", "Toggle Undotree" },
     n = {
       name = "Tree",
       t = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },
@@ -61,6 +62,11 @@ wk.register({
       i = { "<cmd>lua require('dap').toggle()<CR>", "Toggle" },
     },
   },
+  -- simplified window movement
+    ["<c-h>"] = { "<c-w>h" },
+    ["<c-j>"] = { "<c-w>j" },
+    ["<c-k>"] = { "<c-w>k" },
+    ["<c-l>"] = { "<c-w>l" },
   -- more debug hot keys
   ["<F5>"] = {
     "<cmd>lua require('dap').continue()<cr>", "Continue"
