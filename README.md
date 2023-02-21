@@ -21,7 +21,6 @@ ToDo:
 - nvim-cmp
   - config inspired by lazyvim
 - IncRename
-- splitjoin
 
 ### Debugging
 - plenary  %% really? Or just random stuff that's a dependency for telescope? %%
