@@ -42,6 +42,9 @@ return {
       'mfussenegger/nvim-dap',
       'folke/neodev.nvim', -- apparently strongly recommended
     },
+    config = function ()
+      require('dapui').setup()
+    end,
   },
 }
 
