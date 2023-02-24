@@ -9,6 +9,7 @@ wk.register({
     n = {
       name = "Tree",
       t = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },
+      f = { "<cmd>NvimTreeFindFile<cr>", "Find current file" },
     },
     q = {
       name = "Persistence",
