@@ -3,6 +3,48 @@ vim.keymap.set("n", "<leader>rn", function()
 end, { expr = true })
 
 return {
+  {
+    'gelguy/wilder.nvim',
+    event = { "CmdlineEnter" },
+    dependencies = {
+      'roxma/nvim-yarp',
+      'roxma/vim-hug-neovim-rpc',
+      'romgrk/fzy-lua-native',
+    },
+    config = function ()
+      local wilder = require('wilder')
+      wilder.setup({modes = {':', '/', '?'}})
+      -- Disable Python remote plugin
+      wilder.set_option('use_python_remote_plugin', 0)
+
+      wilder.set_option('pipeline', {
+        wilder.branch(
+          wilder.cmdline_pipeline({
+            fuzzy = 1,
+            fuzzy_filter = wilder.lua_fzy_filter(),
+          }),
+          wilder.vim_search_pipeline()
+        )
+      })
+
+      wilder.set_option('renderer', wilder.renderer_mux({
+        [':'] = wilder.popupmenu_renderer({
+          highlighter = wilder.lua_fzy_highlighter(),
+          left = {
+            ' ',
+            wilder.popupmenu_devicons()
+          },
+          right = {
+            ' ',
+            wilder.popupmenu_scrollbar()
+          },
+        }),
+        ['/'] = wilder.wildmenu_renderer({
+          highlighter = wilder.lua_fzy_highlighter(),
+        }),
+      }))
+    end
+  },
   -- view symbols used in file
   {
     'simrat39/symbols-outline.nvim',
@@ -13,7 +55,7 @@ return {
   },
   {
     'mbbill/undotree',
-    lazy = false,
+    event = { "BufReadPost" },
   },
   -- Statusline component that shows current code context
   {

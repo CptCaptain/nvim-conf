@@ -11,10 +11,8 @@ require("_lazy")
 
 require("vimsettings")
 vim.notify = require("notify")
--- require("nvim-tree").setup()
 
 require('leap').add_default_mappings()
--- require('shade').setup()
 
 
 require'nvim-treesitter.configs'.setup {
@@ -33,6 +31,9 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
+    disable = {
+      "python",
+    }
   }
 }
 

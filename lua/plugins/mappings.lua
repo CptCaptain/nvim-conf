@@ -5,6 +5,7 @@ wk.register({
     y = { "\"+y", "Yank to clipboard", mode = { "n", "v" } },
     p = { "\"+p", "Paste from clipboard", mode = { "n", "v" } },
     u = { "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", "Toggle Undotree" },
+    s = { "<cmd>SymbolsOutline<cr>", "Toggle Symbols"},
     n = {
       name = "Tree",
       t = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },
