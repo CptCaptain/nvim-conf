@@ -6,6 +6,8 @@ wk.register({
     p = { "\"+p", "Paste from clipboard", mode = { "n", "v" } },
     u = { "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", "Toggle Undotree" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle Symbols"},
+    o = {"<cmd>Portal jumplist backward<cr>", "Portal backward" },
+    i = { "<cmd>Portal jumplist forward<cr>", "Portal forward" },
     n = {
       name = "Tree",
       t = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },
