@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
   defaults = { lazy = true },
-  install = { colorscheme = { 'AlexvZyl/nordic.nvim' } },
+  install = { colorscheme = { 'rebelot/kanagawa.nvim' } },
   checker = { enabled = true },
   performance = {
     rtp = {

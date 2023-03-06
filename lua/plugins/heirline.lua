@@ -14,7 +14,7 @@ return {
       local conditions = require("heirline.conditions")
       local utils = require("heirline.utils")
 
-      local palette = require('nordic.colors')
+      local theme = require('kanagawa.colors').setup().theme
       local colors = {
         bright_bg = utils.get_highlight("Folded").bg,
         bright_fg = utils.get_highlight("Folded").fg,
@@ -30,9 +30,9 @@ return {
         diag_error = utils.get_highlight("DiagnosticError").fg,
         diag_hint = utils.get_highlight("DiagnosticHint").fg,
         diag_info = utils.get_highlight("DiagnosticInfo").fg,
-        git_del = palette.git.delete,
-        git_add = palette.git.add,
-        git_change = palette.git.change,
+        git_del = theme.diff.delete,
+        git_add = theme.diff.add,
+        git_change = theme.diff.change,
       }
 
       require("heirline").load_colors(colors)

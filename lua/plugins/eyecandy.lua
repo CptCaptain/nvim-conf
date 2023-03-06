@@ -7,11 +7,11 @@ return {
   'rcarriga/nvim-notify',
   -- theme
   {
-  'AlexvZyl/nordic.nvim',
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        require 'nordic' .load()
+        require 'kanagawa'.load('wave')
     end,
   },
   -- focus on cursor region, darken everything else
