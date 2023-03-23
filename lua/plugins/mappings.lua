@@ -69,11 +69,15 @@ wk.register({
       i = { "<cmd>lua require('dap').toggle()<CR>", "Toggle" },
     },
   },
-  -- simplified window movement
-    ["<c-h>"] = { "<c-w>h" },
-    ["<c-j>"] = { "<c-w>j" },
-    ["<c-k>"] = { "<c-w>k" },
-    ["<c-l>"] = { "<c-w>l" },
+  ["<c-k>"] = {
+    function ()
+      if ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+      end
+    end,
+    "Expand Snippet",
+    mode = { "i", "s" },
+  },
   -- more debug hot keys
   ["<F5>"] = {
     "<cmd>lua require('dap').continue()<cr>", "Continue"
