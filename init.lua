@@ -37,3 +37,5 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
+vim.cmd("source ~/.config/nvim/snippets/snips.lua")
+
