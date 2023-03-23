@@ -8,6 +8,9 @@ wk.register({
     s = { "<cmd>SymbolsOutline<cr>", "Toggle Symbols"},
     o = {"<cmd>Portal jumplist backward<cr>", "Portal backward" },
     i = { "<cmd>Portal jumplist forward<cr>", "Portal forward" },
+  ["<leader>"] = {
+      s = { "<cmd>source ~/.config/nvim/snippets/snips.lua <cr>", "Source LuaSnips" },
+    },
     n = {
       name = "Tree",
       t = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },

@@ -1,0 +1,146 @@
+# Generally useful stuff
+snippet #!
+	#!/usr/bin/env python3
+
+snippet imp
+	import ${0:module}
+
+snippet from
+	from ${1:package} import ${0:module}
+
+snippet dbgpr
+	print(f"{${1:var}=}")
+
+snippet with
+	with ${1:expr} as ${2:var}:
+		${0:${VISUAL}}
+
+# New Class
+snippet cl
+	class ${1:ClassName}(${2:object}):
+		"""${3:docstring for $1}"""
+		def __init__(self, ${4:arg}):
+			${5:super($1, self).__init__()}
+			self.$4 = $4
+			${0}
+
+			
+# Data class
+snippet dcl dataclass
+	@dataclass
+	class ${1:ClassName}:
+		"""${2:description}"""
+		${3:var_1}: ${4:int}
+		${5:var_2}: ${6:float} = ${7:0}
+
+		def ${8:total}(self): -> $6:
+			return ${0:self.$3 * self.$5}
+
+			
+# New Function
+snippet def
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+		"""${3:docstring for $1}"""
+		${0}
+
+		
+snippet defm
+	def ${1:mname}(self, ${2:arg}):
+		${0}
+		
+
+# Ifs
+snippet if
+	if $1:
+		${0:${VISUAL}}
+snippet el
+	else:
+		${0:${VISUAL}}
+snippet ei
+	elif $1:
+		${0:${VISUAL}}
+		
+# For
+snippet for
+	for ${1:item} in ${2:items}:
+		${0}
+
+
+# Lambda
+snippet ld
+	${1:var} = lambda ${2:vars} : ${0:action}
+
+# return
+snippet ret
+	return ${0}
+snippet . self.
+	self.
+snippet sa self.attribute = attribute
+	self.${1:attribute} = $1
+
+snippet try Try/Except
+	try:
+		${1:${VISUAL}}
+	except ${2:Exception} as ${3:e}:
+		${0:raise $3}
+snippet trye Try/Except/Else
+	try:
+		${1:${VISUAL}}
+	except ${2:Exception} as ${3:e}:
+		${4:raise $3}
+	else:
+		${0}
+snippet tryf Try/Except/Finally
+	try:
+		${1:${VISUAL}}
+	except ${2:Exception} as ${3:e}:
+		${4:raise $3}
+	finally:
+		${0}
+snippet tryef Try/Except/Else/Finally
+	try:
+		${1:${VISUAL}}
+	except ${2:Exception} as ${3:e}:
+		${4:raise $3}
+	else:
+		${5}
+	finally:
+		${0}
+
+# if __name__ == '__main__':
+snippet ifmain
+	if __name__ == '__main__':
+		${0:main()}
+
+		verbose = argument
+
+# argparse
+snippet addp
+	parser = ${VISUAL:argparse.}ArgumentParser()
+snippet addsp
+	${0:sub_parser} = parser.add_subparsers().add_parser("${1:name}")
+snippet addarg
+	parser.add_argument("${0:short_arg}", "${1:long_arg}", default=${2:None}, help="${3:Help text}")
+snippet addnarg
+	parser.add_argument("${0:arg}", nargs="${1:*}", default=${2:None}, help="${3:Help text}")
+snippet addaarg
+	parser.add_argument("${0:arg}", "${1:long_arg}", action="${2:store_true}", default=${3:False}, help="${4:Help text}")
+snippet pargs
+	"${VISUAL:return }"parser.parse_args()
+
+# comprehensions
+snippet lcp list comprehension
+	[${1} for ${2} in ${3:${VISUAL}}]${0}
+
+snippet dcp dict comprehension
+	{${1}: ${2} for ${3} in ${4:${VISUAL}}}${0}
+
+snippet scp set comprehension
+	{${1} for ${2} in ${3:${VISUAL}}}${0}
+
+	
+# Printing
+snippet pr
+	print($0)
+snippet prs
+	print("$0")
