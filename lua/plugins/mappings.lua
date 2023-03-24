@@ -15,7 +15,9 @@ wk.register({
     n = {
       name = "Tree",
       t = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },
-      f = { "<cmd>NvimTreeFindFile<cr>", "Find current file" },
+      f = { "<cmd>NvimTreeFocus<cr>", "Focus Tree" },
+      c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse unused dirs" },
+      C = { "<cmd>NvimTreeCollapse<cr>", "Collapse all" },
     },
     q = {
       name = "Persistence",
