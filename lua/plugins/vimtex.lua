@@ -62,7 +62,7 @@ function VimtexPDFToggle()
     end
 end
 
-
 return {
-  'lervag/vimtex'
+  'lervag/vimtex',
+  ft = { 'tex' }
 }
