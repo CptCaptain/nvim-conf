@@ -8,6 +8,7 @@ wk.register({
     s = { "<cmd>SymbolsOutline<cr>", "Toggle Symbols"},
     o = {"<cmd>Portal jumplist backward<cr>", "Portal backward" },
     i = { "<cmd>Portal jumplist forward<cr>", "Portal forward" },
+    m = { "<cmd>TSJToggle<cr>", "Toggle Splitline", mode = { "n", "v" } },
   ["<leader>"] = {
       s = { "<cmd>source ~/.config/nvim/snippets/snips.lua <cr>", "Source LuaSnips" },
     },
