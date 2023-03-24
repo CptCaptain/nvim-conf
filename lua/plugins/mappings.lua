@@ -34,6 +34,15 @@ wk.register({
       r = { "<cmd>Telescope oldfiles<cr>", "MRU" },
       p = { "<cmd>Telescope projects<cr>", "Recent Projects" },
     },
+    g = {
+      name = "Gitsigns",
+      n = { "<cmd>Gitsigns next_hunk<cr>", "Next hunk", mode = { "n" }},
+      p = { "<cmd>Gitsigns prev_hunk<cr>", "Prev hunk", mode = { "n" }},
+      P = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Preview hunk", mode = { "n" }},
+      b = { "<cmd>Gitsigns blame_line<cr>", "Blame line", mode = { "n" }},
+      B = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame", mode = { "n" }},
+      d = { "<cmd>Gitsigns diffthis<cr>", "Diff this", mode = { "n" }},
+    },
     d = {
       name = "Debug",
       t = {
