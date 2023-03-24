@@ -24,11 +24,14 @@ wk.register({
     },
     f = {
       name = "Telescope",
+      b = { "<cmd>Telescope buffers<cr>", "buffers" },
       f = { "<cmd>Telescope find_files<cr>", "find_files" },
       g = { "<cmd>Telescope live_grep<cr>", "live_grep" },
-      b = { "<cmd>Telescope buffers<cr>", "buffers" },
       h = { "<cmd>Telescope help_tags<cr>", "help_tags" },
+      m = { "<cmd>Telescope marks<cr>", "marks" },
       n = { "<cmd>enew<cr>", "New File" },
+      r = { "<cmd>Telescope oldfiles<cr>", "MRU" },
+      p = { "<cmd>Telescope projects<cr>", "Recent Projects" },
     },
     d = {
       name = "Debug",
