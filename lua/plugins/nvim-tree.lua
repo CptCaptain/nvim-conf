@@ -18,7 +18,7 @@ local function open_nvim_tree(data)
 
   -- open the tree
   require("nvim-tree.api").tree.open()
-  vim.cmd.wincmd("l")
+  vim.cmd.wincmd("w")
   require("alpha").start(false)
 end
 
