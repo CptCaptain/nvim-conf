@@ -7,6 +7,7 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
       show_hidden = true,
+      detection_methods = { "pattern" }
     }
     require('telescope').load_extension('projects')
     require("nvim-tree").setup({
