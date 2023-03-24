@@ -107,6 +107,12 @@ wk.register({
   ["<F12>"] = {
     "<cmd>lua require('dap').step_out()<cr>", "Step out"
   },
+  ["<LocalLeader>"] = {
+    L = {
+      "<cmd>lua VimtexPDFToggle()<cr>",
+      mode = { "n" },
+    },
+  },
 })
 
 return {

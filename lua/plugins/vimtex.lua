@@ -62,7 +62,6 @@ function VimtexPDFToggle()
     end
 end
 
-keyset("n", "<leader>L", ":lua VimtexPDFToggle()<cr>")
 
 return {
   'lervag/vimtex'
