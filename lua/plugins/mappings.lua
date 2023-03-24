@@ -6,10 +6,10 @@ wk.register({
     p = { "\"+p", "Paste from clipboard", mode = { "n", "v" } },
     u = { "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", "Toggle Undotree" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle Symbols"},
-    o = {"<cmd>Portal jumplist backward<cr>", "Portal backward" },
+    o = { "<cmd>Portal jumplist backward<cr>", "Portal backward" },
     i = { "<cmd>Portal jumplist forward<cr>", "Portal forward" },
     m = { "<cmd>TSJToggle<cr>", "Toggle Splitline", mode = { "n", "v" } },
-  ["<leader>"] = {
+    ["<leader>"] = {
       s = { "<cmd>source ~/.config/nvim/snippets/snips.lua <cr>", "Source LuaSnips" },
     },
     n = {
