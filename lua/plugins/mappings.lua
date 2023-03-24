@@ -86,6 +86,7 @@ wk.register({
   },
   ["<c-k>"] = {
     function ()
+      local ls = require('luasnip')
       if ls.expand_or_jumpable() then
         ls.expand_or_jump()
       end
