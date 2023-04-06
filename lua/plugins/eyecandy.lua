@@ -5,6 +5,13 @@
 return {
   -- notifications
   'rcarriga/nvim-notify',
+  {
+  'JellyApple102/easyread.nvim',
+    lazy = false,
+    config = function ()
+      require("easyread").setup({})
+    end,
+  },
   -- theme
   {
     "rebelot/kanagawa.nvim",

@@ -116,6 +116,7 @@ return {
   {
     "folke/trouble.nvim",
     lazy = true,
+    cmd = { "TroubleToggle" },
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("trouble").setup { }

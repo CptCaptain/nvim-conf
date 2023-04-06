@@ -6,6 +6,7 @@ wk.register({
     p = { "\"+p", "Paste from clipboard", mode = { "n", "v" } },
     u = { "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", "Toggle Undotree" },
     s = { "<cmd>SymbolsOutline<cr>", "Toggle Symbols"},
+    t = { "<cmd>TroubleToggle<cr>", "Toggle Trouble"},
     o = { "<cmd>Portal jumplist backward<cr>", "Portal backward" },
     i = { "<cmd>Portal jumplist forward<cr>", "Portal forward" },
     m = { "<cmd>TSJToggle<cr>", "Toggle Splitline", mode = { "n", "v" } },
