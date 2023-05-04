@@ -46,6 +46,9 @@ wk.register({
       B = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame", mode = { "n" }},
       d = { "<cmd>Gitsigns diffthis<cr>", "Diff this", mode = { "n" }},
     },
+    c = {
+      a ={ "<cmd>lua vim.lsp.buf.code_action()<cr>", mode = {"n"}},
+      },
     d = {
       name = "Debug",
       t = {
