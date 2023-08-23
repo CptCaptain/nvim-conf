@@ -30,7 +30,6 @@ return {
     --]]
     ---@type lspconfig.options
     servers = {
-      jsonls = {},
       lua_ls = {
         settings = {
           Lua = {
