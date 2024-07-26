@@ -1,4 +1,4 @@
 return {
-  'mhartington/formatter.nvim',
+  'averms/black-nvim',
   event = { "BufReadPost" },
 }

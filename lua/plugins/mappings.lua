@@ -1,126 +1,76 @@
 local wk = require('which-key')
-wk.register({
-  ["<leader>"] = {
-    -- copy and paste to system clipboard
-    y = { "\"+y", "Yank to clipboard", mode = { "n", "v" } },
-    p = { "\"+p", "Paste from clipboard", mode = { "n", "v" } },
-    u = { "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", "Toggle Undotree" },
-    s = { "<cmd>SymbolsOutline<cr>", "Toggle Symbols"},
-    t = { "<cmd>TroubleToggle<cr>", "Toggle Trouble"},
-    o = { "<cmd>Portal jumplist backward<cr>", "Portal backward" },
-    i = { "<cmd>Portal jumplist forward<cr>", "Portal forward" },
-    m = { "<cmd>TSJToggle<cr>", "Toggle Splitline", mode = { "n", "v" } },
-    ["<leader>"] = {
-      s = { "<cmd>source ~/.config/nvim/snippets/snips.lua <cr>", "Source LuaSnips" },
+wk.add({
+    { "<F10>", "<cmd>lua require('dap').step_over()<cr>", desc = "Step over" },
+    { "<F11>", "<cmd>lua require('dap').step_into()<cr>", desc = "Step into" },
+    { "<F12>", "<cmd>lua require('dap').step_out()<cr>", desc = "Step out" },
+    { "<F5>", "<cmd>lua require('dap').continue()<cr>", desc = "Continue" },
+    { "<LocalLeader>L", desc = "<cmd>lua VimtexPDFToggle()<cr>" },
+    { "<leader><leader>s", "<cmd>source ~/.config/nvim/snippets/snips.lua <cr>", desc = "Source LuaSnips" },
+    { "<leader>ca", desc = "<cmd>lua vim.lsp.buf.code_action()<cr>" },
+    { "<leader>d", group = "Debug" },
+    { "<leader>db", group = "Breakpoints" },
+    { "<leader>dbc", "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", desc = "Breakpoint Condition" },
+    { "<leader>dbm", "<cmd>lua require('dap').set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>", desc = "Log Point Message" },
+    { "<leader>dc", "<cmd>lua require('dap').scopes()<CR>", desc = "Scopes" },
+    { "<leader>dh", group = "Hover" },
+    { "<leader>dhh", "<cmd>lua require('dap.ui.variables').hover()<CR>", desc = "Hover" },
+    { "<leader>dhv", "<cmd>lua require('dap.ui.variables').visual_hover()<CR>", desc = "Visual Hover" },
+    { "<leader>di", "<cmd>lua require('dap').toggle()<CR>", desc = "Toggle" },
+    { "<leader>dr", group = "Repl" },
+    { "<leader>drl", "<cmd>lua require('dap').repl.run_last()<CR>", desc = "Run Last" },
+    { "<leader>dro", "<cmd>lua require('dap').repl.toggle()<CR>", desc = "Toggle" },
+    { "<leader>dt", group = "Test" },
+    { "<leader>dtm", "<cmd>lua require('dap-python').test_method()<cr>", desc = "Test method" },
+    { "<leader>dtr", "<cmd>lua require('dap-python').test_method()<cr>", desc = "Run Test" },
+    { "<leader>du", group = "UI" },
+    { "<leader>duf", "local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>", desc = "Float" },
+    { "<leader>duh", "<cmd>lua require('dap.ui.widgets').hover()<CR>", desc = "Hover" },
+    { "<leader>dup", "<cmd>lua require('dap.ui.widgets').preview()<cr>", desc = "Preview" },
+    { "<leader>dut", "<cmd>lua require('dapui').toggle()<cr>", desc = "Toggle UI" },
+    { "<leader>f", group = "Telescope" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "buffers" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "find_files" },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "live_grep" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "help_tags" },
+    { "<leader>fm", "<cmd>Telescope marks<cr>", desc = "marks" },
+    { "<leader>fn", "<cmd>enew<cr>", desc = "New File" },
+    { "<leader>fp", "<cmd>Telescope projects<cr>", desc = "Recent Projects" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "MRU" },
+    { "<leader>g", group = "Gitsigns" },
+    { "<leader>gB", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle current line blame" },
+    { "<leader>gP", "<cmd>Gitsigns preview_hunk_inline<cr>", desc = "Preview hunk" },
+    { "<leader>gb", "<cmd>Gitsigns blame_line<cr>", desc = "Blame line" },
+    { "<leader>gd", "<cmd>Gitsigns diffthis<cr>", desc = "Diff this" },
+    { "<leader>gn", "<cmd>Gitsigns next_hunk<cr>", desc = "Next hunk" },
+    { "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>", desc = "Prev hunk" },
+    { "<leader>i", "<cmd>Portal jumplist forward<cr>", desc = "Portal forward" },
+    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    { "<leader>n", group = "Tree" },
+    { "<leader>nC", "<cmd>NvimTreeCollapse<cr>", desc = "Collapse all" },
+    { "<leader>nc", "<cmd>NvimTreeCollapseKeepBuffers<cr>", desc = "Collapse unused dirs" },
+    { "<leader>nf", "<cmd>NvimTreeFocus<cr>", desc = "Focus Tree" },
+    { "<leader>nt", "<cmd>NvimTreeToggle<cr>", desc = "Toggle Tree" },
+    { "<leader>o", "<cmd>Portal jumplist backward<cr>", desc = "Portal backward" },
+    { "<leader>q", group = "Persistence" },
+    { "<leader>qd", "<cmd>lua require('persistence').stop()<cr>", desc = "stop Persistence => session won't be saved on exit" },
+    { "<leader>ql", "<cmd>lua require('persistence').load({ last = true })<cr>", desc = "restore the last session" },
+    { "<leader>qs", "<cmd>lua require('persistence').load()<cr>", desc = "restore the session for the current directory" },
+    { "<leader>s", "<cmd>SymbolsOutline<cr>", desc = "Toggle Symbols" },
+    { "<leader>t", "<cmd>TroubleToggle<cr>", desc = "Toggle Trouble" },
+    { "<leader>u", "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", desc = "Toggle Undotree" },
+    {
+      "<c-k>",
+      function () local ls = require('luasnip') if ls.expand_or_jumpable() then ls.expand_or_jump() end end,
+      desc = "Expand Snippet",
+      mode = { "i", "s" },
     },
-    n = {
-      name = "Tree",
-      t = { "<cmd>NvimTreeToggle<cr>", "Toggle Tree" },
-      f = { "<cmd>NvimTreeFocus<cr>", "Focus Tree" },
-      c = { "<cmd>NvimTreeCollapseKeepBuffers<cr>", "Collapse unused dirs" },
-      C = { "<cmd>NvimTreeCollapse<cr>", "Collapse all" },
+    {
+      mode = { "n", "v" },
+      { "<leader>m", "<cmd>TSJToggle<cr>", desc = "Toggle Splitline" },
+      { "<leader>p", '"+p', desc = "Paste from clipboard" },
+      { "<leader>y", '"+y', desc = "Yank to clipboard" },
     },
-    q = {
-      name = "Persistence",
-      s = { "<cmd>lua require('persistence').load()<cr>" , "restore the session for the current directory" },
-      l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "restore the last session" },
-      d = { "<cmd>lua require('persistence').stop()<cr>", "stop Persistence => session won't be saved on exit" },
-    },
-    f = {
-      name = "Telescope",
-      b = { "<cmd>Telescope buffers<cr>", "buffers" },
-      f = { "<cmd>Telescope find_files<cr>", "find_files" },
-      g = { "<cmd>Telescope live_grep<cr>", "live_grep" },
-      h = { "<cmd>Telescope help_tags<cr>", "help_tags" },
-      m = { "<cmd>Telescope marks<cr>", "marks" },
-      n = { "<cmd>enew<cr>", "New File" },
-      r = { "<cmd>Telescope oldfiles<cr>", "MRU" },
-      p = { "<cmd>Telescope projects<cr>", "Recent Projects" },
-    },
-    g = {
-      name = "Gitsigns",
-      n = { "<cmd>Gitsigns next_hunk<cr>", "Next hunk", mode = { "n" }},
-      p = { "<cmd>Gitsigns prev_hunk<cr>", "Prev hunk", mode = { "n" }},
-      P = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Preview hunk", mode = { "n" }},
-      b = { "<cmd>Gitsigns blame_line<cr>", "Blame line", mode = { "n" }},
-      B = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame", mode = { "n" }},
-      d = { "<cmd>Gitsigns diffthis<cr>", "Diff this", mode = { "n" }},
-    },
-    l = {
-      g ={ "<cmd>LazyGit<cr>", "LazyGit", mode = {"n"}},
-      },
-    c = {
-      a ={ "<cmd>lua vim.lsp.buf.code_action()<cr>", mode = {"n"}},
-      },
-    d = {
-      name = "Debug",
-      t = {
-        name = "Test",
-        r = { "<cmd>lua require('dap-python').test_method()<cr>", "Run Test" },
-        m = { "<cmd>lua require('dap-python').test_method()<cr>", "Test method" },
-      },
-      h = {
-        name = "Hover",
-        h = { "<cmd>lua require('dap.ui.variables').hover()<CR>", "Hover" },
-        v = { "<cmd>lua require('dap.ui.variables').visual_hover()<CR>", "Visual Hover" },
-      },
-      u = {
-        name = "UI",
-        h = { "<cmd>lua require('dap.ui.widgets').hover()<CR>", "Hover" },
-        f = { "local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>", "Float" },
-        p = { "<cmd>lua require('dap.ui.widgets').preview()<cr>", "Preview" },
-        t = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" },
-      },
-      r = {
-        name = "Repl",
-        o = { "<cmd>lua require('dap').repl.toggle()<CR>", "Toggle" },
-        l = { "<cmd>lua require('dap').repl.run_last()<CR>", "Run Last" },
-      },
-      b = {
-        name = "Breakpoints",
-        c = {
-          "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-          "Breakpoint Condition",
-        },
-        m = {
-          "<cmd>lua require('dap').set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>",
-          "Log Point Message",
-        },
-      },
-      c = { "<cmd>lua require('dap').scopes()<CR>", "Scopes" },
-      i = { "<cmd>lua require('dap').toggle()<CR>", "Toggle" },
-    },
-  },
-  ["<c-k>"] = {
-    function ()
-      local ls = require('luasnip')
-      if ls.expand_or_jumpable() then
-        ls.expand_or_jump()
-      end
-    end,
-    "Expand Snippet",
-    mode = { "i", "s" },
-  },
-  -- more debug hot keys
-  ["<F5>"] = {
-    "<cmd>lua require('dap').continue()<cr>", "Continue"
-  },
-  ["<F10>"] = {
-    "<cmd>lua require('dap').step_over()<cr>", "Step over"
-  },
-  ["<F11>"] = {
-    "<cmd>lua require('dap').step_into()<cr>", "Step into"
-  },
-  ["<F12>"] = {
-    "<cmd>lua require('dap').step_out()<cr>", "Step out"
-  },
-  ["<LocalLeader>"] = {
-    L = {
-      "<cmd>lua VimtexPDFToggle()<cr>",
-      mode = { "n" },
-    },
-  },
-})
+  })
 
 return {
   "folke/which-key.nvim",

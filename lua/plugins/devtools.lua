@@ -192,4 +192,5 @@ return {
       }
     end,
   },
+  --- automatically activate poetry env
 }
