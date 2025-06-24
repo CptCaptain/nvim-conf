@@ -11,9 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
 require("lazy").setup("plugins", {
   defaults = { lazy = true },
-  install = { colorscheme = { 'rebelot/kanagawa.nvim' } },
+  -- install = { colorscheme = { 'rebelot/kanagawa.nvim' } },
+  -- install = { colorscheme = {  "neanias/everforest-nvim" } },
   checker = { enabled = true },
   performance = {
     rtp = {
@@ -31,3 +33,5 @@ require("lazy").setup("plugins", {
   },
 })
 
+
+require("everforest").load()

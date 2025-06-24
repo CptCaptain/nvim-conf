@@ -90,6 +90,9 @@ return {
       -- This is the default in Nvim 0.7+
       debounce_text_changes = 150,
     }
+    vim.lsp.config("*", {
+      on_attach = on_attach
+    })
     local util = require("lspconfig/util")
     require('lspconfig')['pyright'].setup{
       on_attach = on_attach,
@@ -112,22 +115,22 @@ return {
     }
 
     require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(servers) })
-    require("mason-lspconfig").setup_handlers({
-      function(server)
-        local server_opts = servers[server] or {}
-        server_opts.capabilities = capabilities
-        if opts.setup[server] then
-          if opts.setup[server](server, server_opts) then
-            return
-          end
-        elseif opts.setup["*"] then
-          if opts.setup["*"](server, server_opts) then
-            return
-          end
-        end
-        require("lspconfig")[server].setup(server_opts)
-      end,
-    })
+    -- require("mason-lspconfig").setup_handlers({
+    -- function(server)
+    -- local server_opts = servers[server] or {}
+    -- server_opts.capabilities = capabilities
+    -- if opts.setup[server] then
+    -- if opts.setup[server](server, server_opts) then
+    -- return
+    -- end
+    -- elseif opts.setup["*"] then
+    -- if opts.setup["*"](server, server_opts) then
+    -- return
+    -- end
+    -- end
+    -- require("lspconfig")[server].setup(server_opts)
+    -- end,
+    -- })
   end,
 }
 
