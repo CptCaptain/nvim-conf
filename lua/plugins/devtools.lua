@@ -47,15 +47,13 @@ return {
   },
   -- view symbols used in file
   {
-    'simrat39/symbols-outline.nvim',
-    cmd = { "SymbolsOutline" },
-    config = function ()
-      require('symbols-outline').setup(
-        {
-          autofold_depth = 1,
-        })
-    end,
+  "hedyhli/outline.nvim",
+  lazy = true,
+  cmd = { "Outline", "OutlineOpen" },
+  opts = {
+    -- Your setup opts here
   },
+},
   {
     'mbbill/undotree',
     event = { "BufReadPost" },

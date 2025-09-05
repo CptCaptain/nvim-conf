@@ -55,7 +55,7 @@ wk.add({
     { "<leader>qd", "<cmd>lua require('persistence').stop()<cr>", desc = "stop Persistence => session won't be saved on exit" },
     { "<leader>ql", "<cmd>lua require('persistence').load({ last = true })<cr>", desc = "restore the last session" },
     { "<leader>qs", "<cmd>lua require('persistence').load()<cr>", desc = "restore the session for the current directory" },
-    { "<leader>s", "<cmd>SymbolsOutline<cr>", desc = "Toggle Symbols" },
+    { "<leader>s", "<cmd>Outline<cr>", desc = "Toggle Symbols" },
     { "<leader>t", "<cmd>TroubleToggle<cr>", desc = "Toggle Trouble" },
     { "<leader>u", "<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>", desc = "Toggle Undotree" },
     {
